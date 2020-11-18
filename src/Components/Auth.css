@@ -6,6 +6,7 @@
 
 
 
+
 .deer {
     display: flex;
     justify-content: center;
@@ -24,4 +25,10 @@
     height: 50px;
     width: 50px;
     cursor: pointer;
+}
+
+.sign-in-email{
+    padding: 50px;
+    background: none;
+    border: none;
 }

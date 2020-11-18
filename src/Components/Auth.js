@@ -8,7 +8,7 @@ import './Auth.css'
 
 import initFirebase from '../services/firebase'
 
-initFirebase()
+// initFirebase()
 
 const provider = new firebase.auth.GoogleAuthProvider()
 
@@ -27,8 +27,7 @@ function Auth(props) {
             const { user, credentials } = result
 
             console.log({user, credentials})
-            
-            // this.props.history.push('/Dashboard')
+
             window.location = "/Dashboard"
 
             if (!user) {
@@ -40,13 +39,20 @@ function Auth(props) {
 
         setAuthorizing(false)
     }
+
+    const handleRegister = () => {
+        window.location = "/Register"
+    }
+    
+
     return (
         <div className="container">
-            <div>
+            <div className="conatiner-center">
             <h2 className="welcome">Welcome To Oliver Hunting Club!</h2>
             <img className="deer" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fae01.alicdn.com%2Fkf%2FHTB1dKDbLXXXXXclXXXXq6xXFXXXA%2F13-7-13-7CM-Deer-in-Crosshairs-Funny-Car-Stickers-Vinyl-Car-Styling-Animal-Car-Body.jpg&f=1&nofb=1"/> 
-                <h2 className="signin">Sign In With <img className="google-icon" src="https://maxcdn.icons8.com/Share/icon/Logos/google_logo1600.png" onClick={handleAuthentication} /></h2>
-                
+                <h2 className="signin">Sign In With: </h2>
+                <img className="google-icon" src="https://maxcdn.icons8.com/Share/icon/Logos/google_logo1600.png" onClick={handleAuthentication} />
+                <button className="sign-in-email" onClick={handleRegister}>Or, Sign In With Email</button>
             </div>
         </div>
     )
